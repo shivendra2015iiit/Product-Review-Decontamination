@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Graphical User Interface</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type ="text/css" href="{% static 'css/bootstrap.min.css'%}"/>
+    <style>
+        #heading{
+        text-align : center;
+        color:white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron" style="background-color:#1a75ff">
+        <h1 id="heading"> Do Do's Market</h1>
+
+    </div></div>
+<br>
+<div style="text-align:center">
+<button type="button" class="btn btn-danger" onclick="location.href='runalgo.html';">RUN PRODUCT REVIEW DECONTAMINATION</button>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        <img src="{% static 'img/product.jpg'%}" class="img-responsive card-img-top"/>
+    </div>
+    <div class="col-lg-4">
+        <h3>Oppo F3 (White) 64 gb</h3>
+        <br>
+        <hr>
+        <br>
+        <h4> ₹16,990</h4>
+        <button type="button" class="btn btn-success">BUY NOW</button>
+        <hr>
+        <ul>
+            <li>No Cost EMIs from ₹1,416/month.Other EMIs from ₹824/month</li>
+            <li>Get upto ₹16,000 off on exchange</li>
+            <li>Extra Rs.3000 off over regular exchange value (Price inclusive)</li>
+            <li>Special PriceGet extra ₹3000 off (price inclusive of discount)</li>
+        </ul>
+
+    </div>
+    <div class="col-lg-4">
+        <h2>Star Rating</h2>
+        <br>
+        <hr>
+        <br>
+        {% block content %}
+        <div class="btn btn-warning"><h1>{{product}}/5</h1></div>
+
+
+    </div>
+</div>
+<div class="row">
+    <div style="padding:1px; background-color:grey;">
+    <h3 style="margin:40px ; font-weight:bold; text-align:center">Customer Reviews</h3>
+    </div>
+    <hr>
+</div>
+<div class="row">
+
+<ul>
+    {% for key,value in a.items %}
+    <hr>
+    <div class="btn btn-warning"> {{value}}/5</div>
+    <li><h3>{{key}}</h3></li>
+    <hr>
+        {% endfor %}
+</ul>
+
+</div>
+{% endblock %}
+</body>
+</html>
